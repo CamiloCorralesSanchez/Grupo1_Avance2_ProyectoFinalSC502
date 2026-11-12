@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio — Dashboard | Plataforma Académica</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="encabezado">
+    <div class="contenedor encabezado-inner">
+        <p class="marca">
+            Universidad Fidélitas
+            <small>SC-502 · Plataforma de Gestión Académica</small>
+        </p>
+        <nav>
+            <a href="index.html" class="activo" aria-current="page">Inicio</a>
+            <a href="asistencia.html">Asistencia</a>
+            <a href="#">Notas</a>
+            <a href="#">Estudiantes</a>
+            <a href="reportes.html">Reportes</a>
+            <a href="grupos.html">Grupos</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="contenedor">
+        <p class="subtitulo">Panel principal · Docente</p>
+        <h1>Dashboard General</h1>
+        <p>Resumen de alertas, asistencia e incidencias académicas del periodo actual.</p>
+    </div>
+</div>
+
+<main>
+    <div class="contenedor">
+
+        <!-- Métricas Rápidas -->
+        <div class="estadisticas">
+            <div class="dato">
+                <span class="numero" style="color:#b33c47;">5</span>
+                <span class="etiqueta">Ausencias injustificadas</span>
+            </div>
+            <div class="dato">
+                <span class="numero" style="color:#a46b00;">8</span>
+                <span class="etiqueta">Notas pendientes</span>
+            </div>
+            <div class="dato">
+                <span class="numero">3</span>
+                <span class="etiqueta">Grupos activos</span>
+            </div>
+            <div class="dato">
+                <span class="numero">87</span>
+                <span class="etiqueta">Estudiantes matriculados</span>
+            </div>
+        </div>
+
+        <!-- Alerta 1: Ausencias Injustificadas -->
+        <div class="tarjeta" style="border-left: 5px solid #b33c47;">
+            <div class="tarjeta-cabecera">
+                <div>
+                    <h2>Estudiantes con ausencias injustificadas</h2>
+                    <span class="texto-muted" style="font-size:.85rem;">Requieren atención o contacto con el encargado legal</span>
+                </div>
+                <span class="insignia insignia-peligro">5 alertas críticas</span>
+            </div>
+            <div class="tabla-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Estudiante</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Ausencias injust.</th>
+                            <th scope="col">Última ausencia</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="negrita">Ramírez Mora, Sofía</td>
+                            <td>10-A Español</td>
+                            <td><span class="insignia insignia-peligro">6 ausencias</span></td>
+                            <td><time datetime="2026-11-10">10 nov 2026</time></td>
+                            <td>
+                                <a href="asistencia.html?grupo=10a#historial" 
+                                   class="boton boton-peligro"
+                                   aria-label="Ver historial de asistencia de Sofía Ramírez en 10-A Español">
+                                    Ver asistencia
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Vargas Soto, Kevin</td>
+                            <td>10-B Matemáticas</td>
+                            <td><span class="insignia insignia-peligro">5 ausencias</span></td>
+                            <td><time datetime="2026-11-09">9 nov 2026</time></td>
+                            <td>
+                                <a href="asistencia.html?grupo=10b#historial" 
+                                   class="boton boton-peligro"
+                                   aria-label="Ver historial de asistencia de Kevin Vargas en 10-B Matemáticas">
+                                    Ver asistencia
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Cruz Pérez, Valentina</td>
+                            <td>11-A Ciencias</td>
+                            <td><span class="insignia insignia-aviso">4 ausencias</span></td>
+                            <td><time datetime="2026-11-08">8 nov 2026</time></td>
+                            <td>
+                                <a href="asistencia.html?grupo=11a#historial" 
+                                   class="boton boton-peligro"
+                                   aria-label="Ver historial de asistencia de Valentina Cruz en 11-A Ciencias">
+                                    Ver asistencia
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Mora Jiménez, Diego</td>
+                            <td>10-A Español</td>
+                            <td><span class="insignia insignia-aviso">4 ausencias</span></td>
+                            <td><time datetime="2026-11-07">7 nov 2026</time></td>
+                            <td>
+                                <a href="asistencia.html?grupo=10a#historial" 
+                                   class="boton boton-peligro"
+                                   aria-label="Ver historial de asistencia de Diego Mora en 10-A Español">
+                                    Ver asistencia
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Solís Ávila, Mariana</td>
+                            <td>11-A Ciencias</td>
+                            <td><span class="insignia insignia-aviso">3 ausencias</span></td>
+                            <td><time datetime="2026-11-06">6 nov 2026</time></td>
+                            <td>
+                                <a href="asistencia.html?grupo=11a#historial" 
+                                   class="boton boton-peligro"
+                                   aria-label="Ver historial de asistencia de Mariana Solís en 11-A Ciencias">
+                                    Ver asistencia
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tarjeta-pie">
+                <span class="texto-muted" style="font-size:.85rem;">Mostrando 5 estudiantes con mayor cantidad de ausencias</span>
+                <a href="asistencia.html#historial" class="boton boton-contorno">Ir al módulo de asistencia completo →</a>
+            </div>
+        </div>
+
+        <!-- Alerta 2: Notas Incompletas -->
+        <div class="tarjeta" style="border-left: 5px solid #a46b00;">
+            <div class="tarjeta-cabecera">
+                <div>
+                    <h2>Estudiantes con evaluaciones pendientes</h2>
+                    <span class="texto-muted" style="font-size:.85rem;">Calificaciones sin registrar en el sistema</span>
+                </div>
+                <span class="insignia insignia-aviso">8 pendientes</span>
+            </div>
+            <div class="tabla-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Estudiante</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Evaluación pendiente</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="negrita">Ramírez Mora, Sofía</td>
+                            <td>10-A Español</td>
+                            <td>Examen Parcial 2</td>
+                            <td><span class="insignia insignia-primario">Examen</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Quesada Araya, Luis</td>
+                            <td>10-B Matemáticas</td>
+                            <td>Tarea 3 — Álgebra</td>
+                            <td><span class="insignia">Tarea</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Méndez Blanco, Andrea</td>
+                            <td>11-A Ciencias</td>
+                            <td>Cotidiano 05 nov</td>
+                            <td><span class="insignia insignia-acento">Cotidiano</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Hernández Vega, Carlos</td>
+                            <td>10-A Español</td>
+                            <td>Trabajo en grupo — Poesía</td>
+                            <td><span class="insignia">Tarea</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Castro Mora, Natalia</td>
+                            <td>10-B Matemáticas</td>
+                            <td>Examen Parcial 2</td>
+                            <td><span class="insignia insignia-primario">Examen</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Rojas Quirós, Pablo</td>
+                            <td>11-A Ciencias</td>
+                            <td>Laboratorio 3</td>
+                            <td><span class="insignia insignia-acento">Cotidiano</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">López Ureña, Daniela</td>
+                            <td>10-A Español</td>
+                            <td>Lectura dirigida — Cap. 4</td>
+                            <td><span class="insignia">Tarea</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                        <tr>
+                            <td class="negrita">Fallas Segura, Marco</td>
+                            <td>11-A Ciencias</td>
+                            <td>Examen Parcial 2</td>
+                            <td><span class="insignia insignia-primario">Examen</span></td>
+                            <td><a href="#" class="boton boton-aviso">Ingresar nota</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tarjeta-pie">
+                <span class="texto-muted" style="font-size:.85rem;">8 rubros evaluativos pendientes de calificar</span>
+                <a href="#" class="boton boton-contorno">Ver todas las evaluaciones →</a>
+            </div>
+        </div>
+
+        <!-- Accesos Rápidos -->
+        <h2 style="margin-top:2rem;margin-bottom:1rem;">Accesos rápidos</h2>
+        <div class="estadisticas">
+            <a href="asistencia.html" class="tarjeta" style="text-decoration:none;color:inherit;padding:1.25rem;display:block;">
+                <h3 style="margin-bottom:.3rem;"> Pasar lista hoy</h3>
+                <p class="texto-muted" style="font-size:.875rem;margin:0;">Registrar el control de asistencia diario por grupo.</p>
+            </a>
+            <a href="asistencia.html#historial" class="tarjeta" style="text-decoration:none;color:inherit;padding:1.25rem;display:block;">
+                <h3 style="margin-bottom:.3rem;"> Historial de asistencia</h3>
+                <p class="texto-muted" style="font-size:.875rem;margin:0;">Consultar reporte consolidado por fecha y estudiante.</p>
+            </a>
+            <a href="#" class="tarjeta" style="text-decoration:none;color:inherit;padding:1.25rem;display:block;">
+                <h3 style="margin-bottom:.3rem;"> Registro de notas</h3>
+                <p class="texto-muted" style="font-size:.875rem;margin:0;">Calificar exámenes, tareas y cotidianos pendientes.</p>
+            </a>
+        </div>
+
+    </div>
+</main>
+
+<footer class="pie">
+    Universidad Fidélitas - SC-502 Ambiente Web Cliente/Servidor - Avance 2
+</footer>
+
+</body>
+</html>
