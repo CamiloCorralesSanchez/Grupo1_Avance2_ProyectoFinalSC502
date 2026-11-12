@@ -1,0 +1,412 @@
+/* ==========================================
+   ESTILOS PARA GRUPOS Y REPORTES
+   Proyecto SC-502
+   ========================================== */
+
+/* Colores principales */
+:root {
+    --modulo-azul: #123b63;
+    --modulo-turquesa: #16a6a3;
+    --modulo-fondo: #f4f7fb;
+    --modulo-blanco: #ffffff;
+    --modulo-texto: #243447;
+    --modulo-borde: #dce4ed;
+    --modulo-rojo: #c0392b;
+    --modulo-verde: #218653;
+}
+
+/* Ajustes generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--modulo-texto);
+    background-color: var(--modulo-fondo);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main.contenedor {
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+/* Encabezado */
+.encabezado {
+    background-color: var(--modulo-azul);
+    color: var(--modulo-blanco);
+}
+
+.encabezado-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.marca {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.marca small {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.encabezado nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.encabezado nav a {
+    color: var(--modulo-blanco);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.encabezado nav a:hover,
+.encabezado nav a.activo {
+    background-color: var(--modulo-turquesa);
+}
+
+/* Título principal */
+.hero {
+    background: linear-gradient(
+        120deg,
+        var(--modulo-azul),
+        var(--modulo-turquesa)
+    );
+
+    color: var(--modulo-blanco);
+    padding: 35px 0;
+}
+
+.hero h1 {
+    margin: 10px 0;
+    font-size: 30px;
+}
+
+.hero p {
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ruta de navegación */
+.migas {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.migas a {
+    color: var(--modulo-azul);
+    text-decoration: none;
+}
+
+/* Tarjetas */
+.tarjeta {
+    background-color: var(--modulo-blanco);
+    border: 1px solid var(--modulo-borde);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta h2 {
+    color: var(--modulo-azul);
+    font-size: 22px;
+    margin-top: 0;
+}
+
+.tarjeta h3 {
+    color: var(--modulo-azul);
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.tarjeta-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tarjeta-cabecera h2 {
+    margin: 0;
+}
+
+/* Formularios */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 11px;
+    font-size: 14px;
+    border: 1px solid var(--modulo-borde);
+    border-radius: 6px;
+    background-color: var(--modulo-blanco);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: 2px solid var(--modulo-turquesa);
+    border-color: var(--modulo-turquesa);
+}
+
+/* Botones */
+.boton {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.boton-primario {
+    background-color: var(--modulo-turquesa);
+    color: var(--modulo-blanco);
+}
+
+.boton-primario:hover {
+    background-color: #118784;
+}
+
+.boton-contorno {
+    background-color: var(--modulo-blanco);
+    border-color: var(--modulo-azul);
+    color: var(--modulo-azul);
+}
+
+.boton-contorno:hover {
+    background-color: #eaf1f8;
+}
+
+.boton-peligro {
+    background-color: var(--modulo-rojo);
+    color: var(--modulo-blanco);
+}
+
+.boton-peligro:hover {
+    background-color: #a93226;
+}
+
+.acciones-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Tablas */
+.tabla-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+thead {
+    background-color: var(--modulo-azul);
+    color: var(--modulo-blanco);
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--modulo-borde);
+    text-align: left;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background-color: #f1f7fa;
+}
+
+td .boton {
+    margin: 3px;
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+/* Mensajes */
+.mensaje-vacio {
+    text-align: center;
+    color: #667788;
+    padding: 20px;
+    font-style: italic;
+}
+
+.mensaje-exito {
+    color: var(--modulo-verde);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.mensaje-error {
+    color: var(--modulo-rojo);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.mensaje-info {
+    color: var(--modulo-azul);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Reportes */
+.filtros-reportes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filtros-reportes .campo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.resumen-reportes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.indicador {
+    background-color: #edf7f7;
+    border: 1px solid var(--modulo-borde);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.indicador h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--modulo-azul);
+}
+
+.indicador p {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--modulo-turquesa);
+    margin: 0;
+}
+
+.acciones-reportes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Pie de página */
+.pie-pagina {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--modulo-azul);
+    color: var(--modulo-blanco);
+    font-size: 13px;
+}
+
+/* Los elementos ocultos no deben mostrarse */
+[hidden] {
+    display: none !important;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+
+    .encabezado-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .encabezado nav {
+        gap: 5px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .tarjeta {
+        padding: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen-reportes {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-cabecera {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .filtros-reportes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    th,
+    td {
+        padding: 9px;
+        font-size: 12px;
+    }
+}
