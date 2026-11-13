@@ -248,6 +248,43 @@ function agregarCalificacion(calificacion) {
     );
 }
 
+// Actualizar una calificación existente
+function actualizarCalificacion(id, datosActualizados) {
+    const calificaciones = obtenerCalificaciones();
+    const posicion = calificaciones.findIndex(
+        calificacion => calificacion.id === id
+    );
+
+    if (posicion === -1) return false;
+
+    calificaciones[posicion] = {
+        ...calificaciones[posicion],
+        ...datosActualizados,
+        id: id
+    };
+
+    return guardarDatos(CLAVE_CALIFICACIONES, calificaciones);
+}
+
+// Eliminar una calificación
+function eliminarCalificacion(id) {
+    const calificaciones = obtenerCalificaciones();
+    const nuevasCalificaciones = calificaciones.filter(
+        calificacion => calificacion.id !== id
+    );
+
+    if (nuevasCalificaciones.length === calificaciones.length) return false;
+    return guardarDatos(CLAVE_CALIFICACIONES, nuevasCalificaciones);
+}
+
+// Obtener calificaciones de un estudiante dentro de un grupo
+function obtenerCalificacionesPorEstudiante(grupoId, estudianteId) {
+    return obtenerCalificaciones().filter(calificacion =>
+        calificacion.grupoId === grupoId &&
+        calificacion.estudianteId === estudianteId
+    );
+}
+
 // ==========================================
 // FUNCIONES PARA ASISTENCIA
 // ==========================================

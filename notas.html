@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas - Plataforma de Gestión Académica</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/modulos.css">
+</head>
+<body>
+<header class="encabezado">
+    <div class="contenedor encabezado-inner">
+        <p class="marca">Universidad Fidélitas<small>SC-502 · Plataforma de Gestión Académica</small></p>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="asistencia.html">Asistencia</a>
+            <a href="notas.html" class="activo" aria-current="page">Notas</a>
+            <a href="evaluacion.html">Evaluación</a>
+            <a href="reportes.html">Reportes</a>
+            <a href="grupos.html">Grupos</a>
+        </nav>
+    </div>
+</header>
+<section class="hero"><div class="contenedor">
+    <p class="subtitulo">Administración académica</p>
+    <h1>Registro de Notas</h1>
+    <p>Registre, consulte, modifique y elimine las calificaciones de cada estudiante.</p>
+</div></section>
+<main class="contenedor">
+    <p class="migas"><a href="index.html">Inicio</a> / Notas</p>
+    <section class="tarjeta">
+        <h2>Seleccionar grupo y estudiante</h2>
+        <div class="form-grid">
+            <div class="campo"><label for="selectGrupo">Grupo</label><select id="selectGrupo" required><option value="">Seleccione un grupo</option></select></div>
+            <div class="campo"><label for="selectEstudiante">Estudiante</label><select id="selectEstudiante" required disabled><option value="">Seleccione primero un grupo</option></select></div>
+        </div>
+        <p id="mensajeGeneral" role="status"></p>
+    </section>
+    <section class="tarjeta" id="seccionFormulario" hidden>
+        <h2 id="tituloFormulario">Registrar calificación</h2>
+        <form id="formCalificacion">
+            <input type="hidden" id="idCalificacion">
+            <div class="form-grid">
+                <div class="campo"><label for="actividad">Nombre de la actividad</label><input id="actividad" type="text" maxlength="100" placeholder="Ej. Examen parcial 1" required></div>
+                <div class="campo"><label for="categoria">Categoría</label><select id="categoria" required><option value="">Seleccione una categoría</option><option value="cotidiano">Cotidiano</option><option value="tareas">Tareas</option><option value="examenes">Exámenes</option></select></div>
+                <div class="campo"><label for="nota">Nota (0 a 100)</label><input id="nota" type="number" min="0" max="100" step="0.01" placeholder="Ej. 85.5" required></div>
+                <div class="campo"><label for="fecha">Fecha</label><input id="fecha" type="date" required></div>
+            </div>
+            <div class="acciones-formulario">
+                <button type="submit" class="boton boton-primario" id="btnGuardar">Guardar calificación</button>
+                <button type="button" class="boton boton-contorno" id="btnCancelar">Cancelar</button>
+            </div>
+        </form>
+    </section>
+    <section class="tarjeta" id="seccionListado" hidden>
+        <div class="tarjeta-cabecera"><h2>Calificaciones registradas</h2><button type="button" class="boton boton-primario" id="btnNueva">Nueva calificación</button></div>
+        <p id="datosSeleccion"></p>
+        <div class="tabla-responsive"><table>
+            <thead><tr><th>Actividad</th><th>Categoría</th><th>Nota</th><th>Fecha</th><th>Acciones</th></tr></thead>
+            <tbody id="tablaNotas"></tbody>
+        </table></div>
+        <p id="sinNotas" class="mensaje-vacio" hidden>No hay calificaciones registradas para este estudiante.</p>
+    </section>
+</main>
+<script src="js/datos.js"></script>
+<script src="js/notas.js"></script>
+</body>
+</html>

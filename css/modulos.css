@@ -410,3 +410,9 @@ td .boton {
         font-size: 12px;
     }
 }
+
+/* Mensajes y acciones de los módulos de Notas y Evaluación */
+.mensaje-aviso { color: #8a5a00; background: #fff7df; padding: 10px 12px; border-radius: 6px; }
+.mensaje-exito { color: var(--modulo-verde); }
+.mensaje-error { color: var(--modulo-rojo); }
+#tablaNotas .boton, #tablaEvaluacion .boton { margin: 2px; }

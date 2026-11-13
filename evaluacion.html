@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación - Plataforma de Gestión Académica</title>
+    <link rel="stylesheet" href="css/estilos.css"><link rel="stylesheet" href="css/modulos.css">
+</head>
+<body>
+<header class="encabezado"><div class="contenedor encabezado-inner">
+    <p class="marca">Universidad Fidélitas<small>SC-502 · Plataforma de Gestión Académica</small></p>
+    <nav><a href="index.html">Inicio</a><a href="asistencia.html">Asistencia</a><a href="notas.html">Notas</a><a href="evaluacion.html" class="activo" aria-current="page">Evaluación</a><a href="reportes.html">Reportes</a><a href="grupos.html">Grupos</a></nav>
+</div></header>
+<section class="hero"><div class="contenedor"><p class="subtitulo">Administración académica</p><h1>Evaluación del rendimiento</h1><p>Consulte los promedios ponderados de cada estudiante según los porcentajes configurados para el grupo.</p></div></section>
+<main class="contenedor">
+    <p class="migas"><a href="index.html">Inicio</a> / Evaluación</p>
+    <section class="tarjeta">
+        <h2>Parámetros de evaluación</h2>
+        <div class="form-grid">
+            <div class="campo"><label for="selectGrupo">Grupo</label><select id="selectGrupo"><option value="">Seleccione un grupo</option></select></div>
+            <div class="campo"><label for="notaMinima">Nota mínima para aprobar</label><input id="notaMinima" type="number" min="0" max="100" step="0.01" value="70"></div>
+        </div>
+        <p id="mensajeGeneral" role="status"></p>
+    </section>
+    <section class="tarjeta" id="seccionPesos" hidden>
+        <h2>Distribución porcentual del grupo</h2>
+        <div class="resumen-reportes">
+            <div class="indicador"><h3>Cotidiano</h3><p id="pesoCotidiano">0%</p></div>
+            <div class="indicador"><h3>Tareas</h3><p id="pesoTareas">0%</p></div>
+            <div class="indicador"><h3>Exámenes</h3><p id="pesoExamenes">0%</p></div>
+        </div>
+        <p id="validacionPesos"></p>
+    </section>
+    <section class="tarjeta" id="seccionResultados" hidden>
+        <div class="tarjeta-cabecera"><h2>Resultados por estudiante</h2><button type="button" class="boton boton-contorno" id="btnActualizar">Actualizar</button></div>
+        <p>El promedio final se calcula cuando el estudiante tiene al menos una nota en cada categoría. Las categorías sin notas se muestran como pendientes y no se convierten automáticamente en cero.</p>
+        <div class="tabla-responsive"><table>
+            <thead><tr><th>Estudiante</th><th>Prom. cotidiano</th><th>Prom. tareas</th><th>Prom. exámenes</th><th>Nota final</th><th>Estado</th></tr></thead>
+            <tbody id="tablaEvaluacion"></tbody>
+        </table></div>
+        <p id="sinEstudiantes" class="mensaje-vacio" hidden>El grupo no tiene estudiantes registrados.</p>
+        <p id="sinNotas" class="mensaje-vacio" hidden>Todavía no hay notas registradas para este grupo. Registre las notas en la sección Notas.</p>
+    </section>
+</main>
+<script src="js/datos.js"></script><script src="js/evaluacion.js"></script>
+</body></html>

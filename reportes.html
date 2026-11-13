@@ -25,7 +25,8 @@
             <nav>
                 <a href="index.html">Inicio</a>
                 <a href="asistencia.html">Asistencia</a>
-                <a href="#">Notas</a>
+                <a href="notas.html">Notas</a>
+                <a href="evaluacion.html">Evaluación</a>
                 <a href="#">Estudiantes</a>
                 <a href="reportes.html" class="activo">Reportes</a>
                 <a href="grupos.html">Grupos</a>
@@ -82,9 +83,7 @@
 
                 </div>
 
-                <button type="button"
-                        class="boton boton-primario"
-                        id="btnGenerarReportes">
+                <button type="button" class="boton boton-primario" id="btnGenerarReportes">
                     Generar reportes
                 </button>
 
@@ -153,9 +152,7 @@
 
                 <h2>Reporte de calificaciones</h2>
 
-                <button type="button"
-                        class="boton boton-primario"
-                        id="btnExportarCalificaciones">
+                <button type="button" class="boton boton-primario" id="btnExportarCalificaciones">
                     Descargar CSV
                 </button>
 
@@ -203,18 +200,14 @@
 
             </div>
 
-            <p id="sinCalificaciones"
-               class="mensaje-vacio"
-               hidden>
+            <p id="sinCalificaciones" class="mensaje-vacio" hidden>
                 No hay información de calificaciones
                 para mostrar.
             </p>
 
             <div class="acciones-reportes">
 
-                <button type="button"
-                        class="boton boton-contorno"
-                        id="btnActualizarCalificaciones">
+                <button type="button" class="boton boton-contorno" id="btnActualizarCalificaciones">
                     Actualizar calificaciones
                 </button>
 
@@ -229,9 +222,7 @@
 
                 <h2>Reporte de asistencia</h2>
 
-                <button type="button"
-                        class="boton boton-primario"
-                        id="btnExportarAsistencia">
+                <button type="button" class="boton boton-primario" id="btnExportarAsistencia">
                     Descargar CSV
                 </button>
 
@@ -246,6 +237,7 @@
 
                 <table>
 
+
                     <thead>
                         <tr>
                             <th>N.º</th>
@@ -253,10 +245,12 @@
                             <th>Presentes</th>
                             <th>Ausencias</th>
                             <th>Tardías</th>
+                            <th>Justificadas</th>
                             <th>Ausencias equivalentes</th>
                             <th>% Asistencia</th>
                         </tr>
                     </thead>
+
 
                     <tbody id="tablaAsistencia">
                         <!-- JavaScript mostrará la asistencia -->
@@ -266,18 +260,14 @@
 
             </div>
 
-            <p id="sinAsistencia"
-               class="mensaje-vacio"
-               hidden>
+            <p id="sinAsistencia" class="mensaje-vacio" hidden>
                 No hay información de asistencia
                 para mostrar.
             </p>
 
             <div class="acciones-reportes">
 
-                <button type="button"
-                        class="boton boton-contorno"
-                        id="btnActualizarAsistencia">
+                <button type="button" class="boton boton-contorno" id="btnActualizarAsistencia">
                     Actualizar asistencia
                 </button>
 
@@ -286,9 +276,7 @@
         </section>
 
         <!-- Mensajes generales -->
-        <p id="mensajeReportes"
-           role="status"
-           aria-live="polite"></p>
+        <p id="mensajeReportes" role="status" aria-live="polite"></p>
 
     </main>
 
@@ -307,4 +295,5 @@
     <script src="js/reportes.js"></script>
 
 </body>
+
 </html>

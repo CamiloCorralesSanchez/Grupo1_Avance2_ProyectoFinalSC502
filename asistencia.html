@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,10 +18,10 @@
         <nav>
             <a href="index.html">Inicio</a>
             <a href="asistencia.html" class="activo">Asistencia</a>
-            <a href="#">Notas</a>
-            <a href="#">Estudiantes</a>
-            <a href="#">Reportes</a>
-            <a href="#">Grupos</a>
+            <a href="notas.html">Notas</a>
+            <a href="evaluacion.html">Evaluación</a>
+            <a href="reportes.html">Reportes</a>
+            <a href="grupos.html">Grupos</a>
         </nav>
     </div>
 </header>
@@ -37,34 +38,42 @@
     <div class="contenedor">
 
         <p class="migas">
-            <a href="index.html">Inicio</a> / <a href="asistencia.html">Asistencia</a> / Pasar lista
+            <a href="index.html">Inicio</a> /
+            <a href="asistencia.html">Asistencia</a> /
+            Pasar lista
         </p>
 
         <div class="tarjeta">
             <div class="tarjeta-cabecera">
                 <h2>Seleccionar fecha y grupo</h2>
             </div>
+
             <div class="tarjeta-cuerpo">
-                <form method="get" action="asistencia.html">
-                    <div class="fila-formulario">
-                        <div class="campo">
-                            <label for="fecha">Fecha</label>
-                            <input type="date" id="fecha" name="fecha" value="2026-11-12">
-                        </div>
-                        <div class="campo">
-                            <label for="grupo">Grupo</label>
-                            <select id="grupo" name="grupo">
-                                <option value="10a" selected>10-A Español</option>
-                                <option value="10b">10-B Matemáticas</option>
-                                <option value="11a">11-A Ciencias</option>
-                            </select>
-                        </div>
-                        <div class="campo" style="display:flex;align-items:flex-end;">
-                            <button type="submit" class="boton boton-primario" style="width:100%;">Cargar grupo</button>
-                        </div>
+                <div class="fila-formulario">
+                    <div class="campo">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha">
                     </div>
-                </form>
+
+                    <div class="campo">
+                        <label for="grupo">Grupo</label>
+                        <select id="grupo">
+                            <option value="">Cargando grupos...</option>
+                        </select>
+                    </div>
+
+                    <div class="campo" style="display:flex;align-items:flex-end;">
+                        <button type="button" id="btnCargarGrupo"
+                                class="boton boton-primario" style="width:100%;">
+                            Cargar grupo
+                        </button>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div id="mensajeAsistencia" class="mensaje-aviso" role="status">
+            Seleccione un grupo para cargar sus estudiantes.
         </div>
 
         <p style="font-size:.875rem;color:#526072;margin-bottom:1rem;">
@@ -72,385 +81,120 @@
             <span class="insignia insignia-aviso">T</span> Tardía -
             <span class="insignia insignia-peligro">A</span> Ausente -
             <span class="insignia insignia-info">J</span> Justificada -
-            <strong>Nota:</strong> tres tardías (T) equivalen a una ausencia (A).
+            <strong>Nota:</strong> tres tardías equivalen a una ausencia.
         </p>
 
         <div class="tarjeta">
             <div class="tarjeta-cabecera">
-                <span>
-                    <strong>10-A Español</strong>
-                    <span class="texto-muted" style="margin-left:.75rem;font-size:.875rem;">
-                        Jueves 12 nov 2026 · 10 estudiantes
-                    </span>
-                </span>
-                <a href="#historial" class="boton boton-contorno">Ver historial</a>
-            </div>
-
-            <form method="post" action="#">
-                <div class="tabla-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Estudiante</th>
-                                <th>Estado</th>
-                                <th>Observación</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Ávila Mora, Andrés</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_1" id="p1" value="P" checked>
-                                        <label for="p1">P</label>
-                                        <input type="radio" name="att_1" id="t1" value="T">
-                                        <label for="t1">T</label>
-                                        <input type="radio" name="att_1" id="a1" value="A">
-                                        <label for="a1">A</label>
-                                        <input type="radio" name="att_1" id="j1" value="J">
-                                        <label for="j1">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_1" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Castro Ureña, Daniela</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_2" id="p2" value="P" checked>
-                                        <label for="p2">P</label>
-                                        <input type="radio" name="att_2" id="t2" value="T">
-                                        <label for="t2">T</label>
-                                        <input type="radio" name="att_2" id="a2" value="A">
-                                        <label for="a2">A</label>
-                                        <input type="radio" name="att_2" id="j2" value="J">
-                                        <label for="j2">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_2" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Cruz Pérez, Valentina</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_3" id="p3" value="P">
-                                        <label for="p3">P</label>
-                                        <input type="radio" name="att_3" id="t3" value="T" checked>
-                                        <label for="t3">T</label>
-                                        <input type="radio" name="att_3" id="a3" value="A">
-                                        <label for="a3">A</label>
-                                        <input type="radio" name="att_3" id="j3" value="J">
-                                        <label for="j3">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_3" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;" value="Llegó 12 min tarde"></td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>Fallas Segura, Marco</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_4" id="p4" value="P">
-                                        <label for="p4">P</label>
-                                        <input type="radio" name="att_4" id="t4" value="T">
-                                        <label for="t4">T</label>
-                                        <input type="radio" name="att_4" id="a4" value="A" checked>
-                                        <label for="a4">A</label>
-                                        <input type="radio" name="att_4" id="j4" value="J">
-                                        <label for="j4">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_4" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>González Arce, Paola</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_5" id="p5" value="P">
-                                        <label for="p5">P</label>
-                                        <input type="radio" name="att_5" id="t5" value="T">
-                                        <label for="t5">T</label>
-                                        <input type="radio" name="att_5" id="a5" value="A">
-                                        <label for="a5">A</label>
-                                        <input type="radio" name="att_5" id="j5" value="J" checked>
-                                        <label for="j5">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_5" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;" value="Cita médica"></td>
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>Hernández Vega, Carlos</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_6" id="p6" value="P" checked>
-                                        <label for="p6">P</label>
-                                        <input type="radio" name="att_6" id="t6" value="T">
-                                        <label for="t6">T</label>
-                                        <input type="radio" name="att_6" id="a6" value="A">
-                                        <label for="a6">A</label>
-                                        <input type="radio" name="att_6" id="j6" value="J">
-                                        <label for="j6">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_6" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>López Ureña, Daniela</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_7" id="p7" value="P" checked>
-                                        <label for="p7">P</label>
-                                        <input type="radio" name="att_7" id="t7" value="T">
-                                        <label for="t7">T</label>
-                                        <input type="radio" name="att_7" id="a7" value="A">
-                                        <label for="a7">A</label>
-                                        <input type="radio" name="att_7" id="j7" value="J">
-                                        <label for="j7">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_7" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr>
-                                <td>8</td>
-                                <td>Mora Jiménez, Diego</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_8" id="p8" value="P">
-                                        <label for="p8">P</label>
-                                        <input type="radio" name="att_8" id="t8" value="T">
-                                        <label for="t8">T</label>
-                                        <input type="radio" name="att_8" id="a8" value="A" checked>
-                                        <label for="a8">A</label>
-                                        <input type="radio" name="att_8" id="j8" value="J">
-                                        <label for="j8">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_8" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr style="background:#fff5dc;">
-                                <td>9</td>
-                                <td>
-                                    Quesada Araya, Luis
-                                    <span class="insignia insignia-aviso" style="margin-left:.4rem;">2 T acum.</span>
-                                </td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_9" id="p9" value="P" checked>
-                                        <label for="p9">P</label>
-                                        <input type="radio" name="att_9" id="t9" value="T">
-                                        <label for="t9">T</label>
-                                        <input type="radio" name="att_9" id="a9" value="A">
-                                        <label for="a9">A</label>
-                                        <input type="radio" name="att_9" id="j9" value="J">
-                                        <label for="j9">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_9" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                            <tr>
-                                <td>10</td>
-                                <td>Ramírez Mora, Sofía</td>
-                                <td>
-                                    <div class="grupo-asistencia">
-                                        <input type="radio" name="att_10" id="p10" value="P" checked>
-                                        <label for="p10">P</label>
-                                        <input type="radio" name="att_10" id="t10" value="T">
-                                        <label for="t10">T</label>
-                                        <input type="radio" name="att_10" id="a10" value="A">
-                                        <label for="a10">A</label>
-                                        <input type="radio" name="att_10" id="j10" value="J">
-                                        <label for="j10">J</label>
-                                    </div>
-                                </td>
-                                <td><input type="text" name="obs_10" placeholder="Observación…" style="min-height:unset;padding:.3rem .55rem;font-size:.85rem;"></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tarjeta-pie">
-                    <a href="index.html" class="boton boton-contorno">← Volver al dashboard</a>
-                    <div class="fila-acciones">
-                        <a href="#historial" class="boton boton-contorno">Ir al historial ↓</a>
-                        <button type="submit" class="boton boton-primario">Guardar lista</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <!-- Sección de Historial de Asistencia -->
-        <div class="tarjeta" id="historial">
-            <div class="tarjeta-cabecera">
                 <div>
-                    <h2>Historial de Asistencia — 10-A Español</h2>
-                    <span class="texto-muted" style="font-size:.85rem;">Registro consolidado del periodo lectivo</span>
+                    <h2 id="tituloGrupo">Lista de estudiantes</h2>
+                    <span id="detalleGrupo" class="texto-muted">
+                        Seleccione un grupo.
+                    </span>
                 </div>
-                <div class="fila-acciones">
-                    <button type="button" class="boton boton-contorno" onclick="window.print()">Imprimir reporte</button>
-                </div>
+                <a href="#historial" class="boton boton-contorno">
+                    Ver historial
+                </a>
             </div>
 
-            <div class="tarjeta-cuerpo">
-                <div class="estadisticas" style="margin-bottom:1.25rem;">
-                    <div class="dato">
-                        <span class="numero">4</span>
-                        <span class="etiqueta">Sesiones registradas</span>
-                    </div>
-                    <div class="dato">
-                        <span class="numero" style="color:#2e7b56;">91.5%</span>
-                        <span class="etiqueta">Asistencia promedio</span>
-                    </div>
-                    <div class="dato">
-                        <span class="numero" style="color:#a46b00;">3</span>
-                        <span class="etiqueta">Tardías acumuladas</span>
-                    </div>
-                    <div class="dato">
-                        <span class="numero" style="color:#b33c47;">5</span>
-                        <span class="etiqueta">Ausencias injustificadas</span>
-                    </div>
-                </div>
-
-                <div class="tabla-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Estudiante</th>
-                                <th class="texto-centro">05 Nov</th>
-                                <th class="texto-centro">07 Nov</th>
-                                <th class="texto-centro">10 Nov</th>
-                                <th class="texto-centro">12 Nov</th>
-                                <th class="texto-centro">Totales (P / T / A / J)</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td class="negrita">Ávila Mora, Andrés</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro">4 / 0 / 0 / 0</td>
-                                <td><span class="insignia insignia-exito">Excelente (100%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td class="negrita">Castro Ureña, Daniela</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro">4 / 0 / 0 / 0</td>
-                                <td><span class="insignia insignia-exito">Excelente (100%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td class="negrita">Cruz Pérez, Valentina</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-aviso">T</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-aviso">T</span></td>
-                                <td class="texto-centro">2 / 2 / 1 / 0</td>
-                                <td><span class="insignia insignia-aviso">En observación (62.5%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td class="negrita">Fallas Segura, Marco</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro">3 / 0 / 1 / 0</td>
-                                <td><span class="insignia insignia-primario">Regular (75%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td class="negrita">González Arce, Paola</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-info">J</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-info">J</span></td>
-                                <td class="texto-centro">2 / 0 / 0 / 2</td>
-                                <td><span class="insignia insignia-info">Justificadas (100%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td class="negrita">Hernández Vega, Carlos</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro">4 / 0 / 0 / 0</td>
-                                <td><span class="insignia insignia-exito">Excelente (100%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td class="negrita">López Ureña, Daniela</td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro">4 / 0 / 0 / 0</td>
-                                <td><span class="insignia insignia-exito">Excelente (100%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td class="negrita">Mora Jiménez, Diego</td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro">1 / 0 / 3 / 0</td>
-                                <td><span class="insignia insignia-peligro">Riesgo crítico (25%)</span></td>
-                            </tr>
-                            <tr style="background:#fff5dc;">
-                                <td>9</td>
-                                <td class="negrita">Quesada Araya, Luis</td>
-                                <td class="texto-centro"><span class="insignia insignia-aviso">T</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-aviso">T</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro">2 / 2 / 0 / 0</td>
-                                <td><span class="insignia insignia-aviso">Alerta de tardías (80%)</span></td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td class="negrita">Ramírez Mora, Sofía</td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-peligro">A</span></td>
-                                <td class="texto-centro"><span class="insignia insignia-exito">P</span></td>
-                                <td class="texto-centro">1 / 0 / 3 / 0</td>
-                                <td><span class="insignia insignia-peligro">Riesgo crítico (25%)</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="tabla-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Estudiante</th>
+                            <th>Estado</th>
+                            <th>Observación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaEstudiantesAsistencia">
+                        <tr>
+                            <td colspan="4">
+                                Seleccione un grupo para mostrar los estudiantes.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tarjeta-pie">
-                <a href="#top" class="boton boton-contorno">↑ Volver arriba</a>
-                <span class="texto-muted" style="font-size:.85rem;">Última sincronización: 12 nov 2026, 08:30 AM</span>
+                <a href="index.html" class="boton boton-contorno">
+                    ← Volver al dashboard
+                </a>
+
+                <button type="button" id="btnGuardarAsistencia"
+                        class="boton boton-primario" disabled>
+                    Guardar lista
+                </button>
+            </div>
+        </div>
+
+        <div class="tarjeta" id="historial">
+            <div class="tarjeta-cabecera">
+                <div>
+                    <h2>Historial de Asistencia</h2>
+                    <span class="texto-muted">
+                        Registros guardados para el grupo seleccionado
+                    </span>
+                </div>
+
+                <button type="button" class="boton boton-contorno"
+                        onclick="window.print()">
+                    Imprimir reporte
+                </button>
+            </div>
+
+            <div class="tarjeta-cuerpo">
+
+                <div class="estadisticas" style="margin-bottom:1.25rem;">
+                    <div class="dato">
+                        <span class="numero" id="totalSesiones">0</span>
+                        <span class="etiqueta">Sesiones registradas</span>
+                    </div>
+
+                    <div class="dato">
+                        <span class="numero" id="promedioAsistencia"
+                              style="color:#2e7b56;">Sin datos</span>
+                        <span class="etiqueta">Asistencia promedio</span>
+                    </div>
+
+                    <div class="dato">
+                        <span class="numero" id="totalTardias"
+                              style="color:#a46b00;">0</span>
+                        <span class="etiqueta">Tardías registradas</span>
+                    </div>
+
+                    <div class="dato">
+                        <span class="numero" id="totalAusencias"
+                              style="color:#b33c47;">0</span>
+                        <span class="etiqueta">Ausencias registradas</span>
+                    </div>
+                </div>
+
+                <div class="tabla-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Estudiante</th>
+                                <th>Presentes</th>
+                                <th>Tardías</th>
+                                <th>Ausencias</th>
+                                <th>Justificadas</th>
+                                <th>Asistencia</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaHistorialAsistencia">
+                            <tr>
+                                <td colspan="7">
+                                    No hay registros para mostrar.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
 
@@ -460,6 +204,9 @@
 <footer class="pie">
     Universidad Fidélitas - SC-502 Ambiente Web Cliente/Servidor - Avance 2
 </footer>
+
+<script src="js/datos.js"></script>
+<script src="js/asistencia.js"></script>
 
 </body>
 </html>
